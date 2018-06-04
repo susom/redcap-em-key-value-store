@@ -1,0 +1,40 @@
+{
+  "name": "Stanford Key Value Store",
+
+  "namespace":"Stanford\\KVS",
+
+  "description": "A module for storing keys and value securely in the database",
+
+  "versions": [
+    { "0.1": "Initial Development Version" }
+  ],
+
+  "authors": [
+    {
+      "name": "Andy Martin",
+      "email": "andy123@stanford.edu",
+      "institution": "Stanford University"
+    }
+  ],
+
+  "permissions": [
+  ],
+
+  "links": {
+    "control-center": [
+      {
+        "name": "KVS TEST",
+        "icon": "gear",
+        "url": "kvs_test.php"
+      }
+    ],
+    "project": [
+    ]
+  },
+
+  "system-settings": [
+  ],
+
+  "project-settings": [
+  ]
+}
