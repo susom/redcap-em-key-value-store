@@ -35,3 +35,5 @@ $value = $KVS->getValue($project_id, "FOO");
 There is a utility accessible from the control center that shows you all external module settings for a given project, and also allows you to set values.
  * Be careful that you can also see non-encrypted settings
  * Be careful not to overwrite any other settings - no history/cache is kept
+ 
+ ![Example Utility](example_kvs_utility.png)
