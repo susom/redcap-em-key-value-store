@@ -3,6 +3,7 @@ namespace Stanford\KVS;
 
 class KVS extends \ExternalModules\AbstractExternalModule
 {
+    const ENC_PREFIX = "KVS Encrypted: ";
 
     /**
      * getValue
@@ -21,7 +22,12 @@ class KVS extends \ExternalModules\AbstractExternalModule
             return false;
         }
 
+
         $value = $this->getProjectSetting($key,$project_id);
+
+        // Remove prepended KVS prefix
+        $value = preg_replace("/^" . self::ENC_PREFIX . "/", "", $value);
+
         return self::decrypt($value);
     }
 
@@ -45,6 +51,10 @@ class KVS extends \ExternalModules\AbstractExternalModule
         }
 
         $value = self::encrypt($value);
+
+        // Append a KVS__ prefix to the key so we know it was processed by the KVS module
+        $value = self::ENC_PREFIX . $value;
+
         $this->setProjectSetting($key,$value,$project_id);
         return true;
     }
@@ -56,4 +66,18 @@ class KVS extends \ExternalModules\AbstractExternalModule
     private static function decrypt($value) {
         return decrypt($value);
     }
+
+    /**
+     * Does the value start with the ENC_PREFIX
+     * @param $value
+     * @return bool
+     */
+    public function isEncrypted($value) {
+        if (strpos('x'.$value, self::ENC_PREFIX, 1) === 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

@@ -1,4 +1,4 @@
-# Stanford Key Value Store
+# REDCap Key Value Store
 
 This external modules is intended to store secrets in the External Modules database table
 
@@ -20,7 +20,7 @@ In the external_modules_settings table, you will now have a value for FOO with a
 
 | Project | Key | Value |
 | --- | --- | --------------------------------------------------------------- |
-| 123 | FOO | `x3Xnt1ft5jDNCqERO9ECZkB4QwmQjq6EQ2/ClbFkok5EYyCWR2nk3WFOupCGrXV0` |
+| 123 | FOO | KVS Encrypted: `x3Xnt1ft5jDNCqERO9ECZkB4QwmQjq6EQ2/ClbFkok5EYyCWR2nk3WFOupCGrXV0` |
 
 ## Getting a Value
 To retrieve a value:

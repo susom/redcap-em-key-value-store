@@ -2,12 +2,8 @@
 namespace Stanford\KVS;
 /** @var \Stanford\KVS\KVS $module */
 
-// A test page for running SPL Lookups
+require APP_PATH_DOCROOT . "ControlCenter/header.php";
 
-use HtmlPage;
-
-$HtmlPage = new HtmlPage();
-$HtmlPage->PrintHeaderExt();
 
 if (!SUPER_USER) {
     ?>
@@ -82,9 +78,17 @@ if ($action == "set" && !empty($setkey)) {
         $q = db_query($sql);
         $rows = array();
         while ($row = db_fetch_assoc($q)) {
-            $rows[]="<tr><td>" . $row['key'] . "</td>".
-            "<td>" . htmlentities($row['value']) . "</td>" .
-            "<td><span data-val='" . $row['key'] . "' class='btn btn-primary btn-xs decode'>Decode</span></td></tr>";
+            $key = $row['key'];
+            $val = $row['value'];
+            $isEncrypted = $module->isEncrypted($val);
+            $class = $setkey==$key ? "highlight" : "";
+
+            $r="<tr class='$class'>" .
+                    "<td>$key</td>" .
+                    "<td>" . htmlentities($val) . "</td>" .
+                    "<td>" . ($isEncrypted ? "<span data-val='$key' class='btn btn-primary btn-xs decode'>Decode</span>" : "") . "</td>" .
+                "</tr>";
+            $rows[] = $r;
         }
 ?>
                 <div class="input-group margin-20">
@@ -144,10 +148,11 @@ if ($action == "set" && !empty($setkey)) {
         .margin-20 {margin:20px 0;}
         #table {width:100%;}
         th {font-weight:bold;}
+        tr.highlight { background-color: yellow;}
     </style>
 
 
 <?php
 
-$HtmlPage->PrintFooterExt();
+require APP_PATH_DOCROOT . "ControlCenter/footer.php";
 
