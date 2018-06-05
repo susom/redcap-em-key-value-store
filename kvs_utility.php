@@ -9,10 +9,18 @@ use HtmlPage;
 $HtmlPage = new HtmlPage();
 $HtmlPage->PrintHeaderExt();
 
+if (!SUPER_USER) {
+    ?>
+        <div class="jumbotron text-center">
+            <h3><span class="glyphicon glyphicon-exclamation-sign"></span> This utility is only available for REDCap Administrators</h3>
+        </div>
+    <?php
+    exit();
+}
+
 
 
 $select_pid = isset($_POST['select_pid']) ? intval($_POST['select_pid']) : null;
-$pid = isset($_POST['pid']) ? intval($_POST['pid']) : null;
 $getkey = isset($_POST['getkey']) ? $_POST['getkey'] : null;
 $setkey = isset($_POST['setkey']) ? $_POST['setkey'] : null;
 $setval = isset($_POST['setval']) ? $_POST['setval'] : null;
