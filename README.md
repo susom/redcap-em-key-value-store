@@ -17,9 +17,10 @@ $KVS = \ExternalModules\ExternalModules::getModuleInstance('stanford_key_value_s
 $KVS->setValue($project_id, "FOO", "BAR");
 ```
 In the external_modules_settings table, you will now have a value for FOO with an encrypted version of BAR.  Then encryption uses the database.php $salt variable so it will not necessarily work on another server if copied in the encrypted format.
-| Key | Value |
-| --- | ----- |
-| FOO | `x3Xnt1ft5jDNCqERO9ECZkB4QwmQjq6EQ2/ClbFkok5EYyCWR2nk3WFOupCGrXV0` |
+
+| Project | Key | Value |
+| --- | --- | --------------------------------------------------------------- |
+| 123 | FOO | `x3Xnt1ft5jDNCqERO9ECZkB4QwmQjq6EQ2/ClbFkok5EYyCWR2nk3WFOupCGrXV0` |
 
 ## Getting a Value
 To retrieve a value:
