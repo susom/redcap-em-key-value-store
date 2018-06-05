@@ -75,7 +75,7 @@ if ($action == "set" && !empty($setkey)) {
         $rows = array();
         while ($row = db_fetch_assoc($q)) {
             $rows[]="<tr><td>" . $row['key'] . "</td>".
-            "<td>" . $row['value'] . "</td>" .
+            "<td>" . htmlentities($row['value']) . "</td>" .
             "<td><span data-val='" . $row['key'] . "' class='btn btn-primary btn-xs decode'>Decode</span></td></tr>";
         }
 ?>
