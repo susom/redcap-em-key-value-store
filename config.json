@@ -23,9 +23,9 @@
   "links": {
     "control-center": [
       {
-        "name": "KVS TEST",
+        "name": "KVS Utility",
         "icon": "gear",
-        "url": "kvs_test.php"
+        "url": "kvs_utility.php"
       }
     ],
     "project": [
