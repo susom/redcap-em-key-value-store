@@ -6,7 +6,7 @@ In order to load a KVS object, insert this line into your code after installing 
 You do not need to enable it for a specific project, only from the control center.
 ```php
 // This is how you access an EM class from other code in REDCap
-$KVS = \ExternalModules\ExternalModules::getModuleInstance('stanford_key_value_store');
+$KVS = \ExternalModules\ExternalModules::getModuleInstance('key_value_store');
 ```
  * All stored values will be reversibly encrypted
  * This class will only be available if you have already bootstrapped REDCap (meaning if a plugin or DET, you must first include `redcap_connect.php`)
