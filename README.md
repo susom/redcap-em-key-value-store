@@ -1,6 +1,6 @@
 # REDCap Key Value Store
 
-This external modules is intended to store secrets in the External Modules database table
+This external modules is intended to store secrets in the External Modules database table and is used by other external modules.
 
 In order to load a KVS object, insert this line into your code after installing this module and enabling it.
 You do not need to enable it for a specific project, only from the control center.
